@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Threading;
 
 namespace NewNamespace
 {
@@ -17,17 +17,19 @@ namespace NewNamespace
             string maxNunberString = Convert.ToString(maxNunber);
             int maxSymInMaxNumber = maxNunberString.Length + 2;
 
-            Console.Clear();
-
-            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '╔', '═', '╦', '╗');
-            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '║', ' ', '║', '║');
-            for (int number = 0; number <= maxNunber; number++)
+            int a = 0;
+            while (a < 2 )
             {
-                long factorial = FindFactorial(number);
-                WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '║', ' ', ' ', '║', Convert.ToString(number), Convert.ToString(factorial));
+                Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.BackgroundColor = ConsoleColor.White;
+
+                Thread.Sleep(1000);
+                ConclusionTablet(maxSymInMaxNumber, maxSymInMaxFactorial, maxNunber);
+                Console.WriteLine(" ");
+                Thread.Sleep(1000);
             }
-            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '║', ' ', '║', '║');
-            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '╚', '═', '╩', '╝');
 
             Console.ReadLine();
         }
@@ -100,5 +102,21 @@ namespace NewNamespace
 
             Console.Write(fourthSym);
         }
+
+        static void ConclusionTablet(int maxSymInMaxNumber, int maxSymInMaxFactorial, int maxNunber)
+        {
+            
+
+            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '╔', '═', '╦', '╗');
+            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '║', ' ', '║', '║');
+            for (int number = 0; number <= maxNunber; number++)
+            {
+                long factorial = FindFactorial(number);
+                WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '║', ' ', ' ', '║', Convert.ToString(number), Convert.ToString(factorial));
+            }
+            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '║', ' ', '║', '║');
+            WriteBoxLine(maxSymInMaxNumber, maxSymInMaxFactorial, '╚', '═', '╩', '╝');
+        }
+
     }
 }
