@@ -17,8 +17,8 @@ namespace NewNamespace
             string maxNunberString = Convert.ToString(maxNunber);
             int maxSymInMaxNumber = maxNunberString.Length + 2;
 
-            int a = 0;
-            while (a < 2 )
+            
+            do
             {
                 Console.Clear();
 
@@ -29,9 +29,9 @@ namespace NewNamespace
                 ConclusionTablet(maxSymInMaxNumber, maxSymInMaxFactorial, maxNunber);
                 Console.WriteLine(" ");
                 Thread.Sleep(1000);
-            }
+            } while (true);
 
-            Console.ReadLine();
+            
         }
 
         static int EnterAndCheck()
